@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatPlug AI - Smart Chatbot Plugin</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">ChatPlug<span>AI</span></div>
+
+        <nav id="mainNav">
+            <a href="#home" onclick="closeMenu()">Home</a>
+            <a href="#features" onclick="closeMenu()">Features</a>
+            <a href="#pricing" onclick="closeMenu()">Pricing</a>
+            <a href="#reviews" onclick="closeMenu()">Reviews</a>
+            <a href="#faq" onclick="closeMenu()">FAQ</a>
+            <a href="#contact" onclick="closeMenu()">Contact</a>
+        </nav>
+
+        <button class="nav-btn" onclick="scrollToSection('pricing')">
+            Get Started
+        </button>
+
+        <!-- Hamburger menu button (mobile) -->
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                🚀 AI-Powered Chatbot Plugin
+            </div>
+
+            <h1>
+                Turn Your Website Into a
+                <span>24/7 AI Assistant</span>
+            </h1>
+
+            <p>
+                Engage visitors, answer questions, generate leads and
+                provide instant customer support with our powerful
+                AI chatbot plugin.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="primary-btn" onclick="startFree()">
+                    Start Free
+                </button>
+
+                <button class="secondary-btn" onclick="showDemo()">
+                    ▶ Watch Demo
+                </button>
+            </div>
+
+            <div class="stats">
+                <div>
+                    <strong>10K+</strong>
+                    <small>Websites</small>
+                </div>
+
+                <div>
+                    <strong>99.9%</strong>
+                    <small>Uptime</small>
+                </div>
+
+                <div>
+                    <strong>24/7</strong>
+                    <small>Support</small>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Chatbot Preview -->
+        <div class="chat-preview">
+
+            <div class="chat-header">
+                <div class="bot-icon">🤖</div>
+
+                <div>
+                    <h3>ChatPlug AI</h3>
+                    <span>● Online</span>
+                </div>
+            </div>
+
+            <div class="chat-body">
+
+                <div class="message bot">
+                    Hello! 👋
+                    How can I help you today?
+                </div>
+
+                <div class="message user">
+                    Tell me about your product.
+                </div>
+
+                <div class="message bot">
+                    Of course! ChatPlug AI helps businesses
+                    automate customer support and generate
+                    more leads.
+                </div>
+
+                <div class="chat-input">
+                    <input type="text"
+                           id="chatInput"
+                           placeholder="Type a message...">
+
+                    <button onclick="sendMessage()">➤</button>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Features -->
+    <section class="features" id="features">
+
+        <div class="section-title">
+            <span>POWERFUL FEATURES</span>
+            <h2>Everything You Need to Automate Conversations</h2>
+            <p>
+                Give your customers instant answers while saving
+                time and growing your business.
+            </p>
+        </div>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Powered</h3>
+                <p>
+                    Smart AI understands customer questions and
+                    provides useful responses automatically.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Easy Integration</h3>
+                <p>
+                    Add the chatbot to your website quickly
+                    without complicated technical work.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>24/7 Support</h3>
+                <p>
+                    Your customers can get assistance anytime,
+                    even when your team is offline.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Analytics</h3>
+                <p>
+                    Track conversations, leads and customer
+                    engagement through a simple dashboard.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Custom Design</h3>
+                <p>
+                    Match the chatbot with your website's colors,
+                    branding and style.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure</h3>
+                <p>
+                    Keep customer conversations protected with
+                    secure and reliable technology.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Benefits -->
+    <section class="benefits">
+
+        <div class="benefit-image">
+            <div class="dashboard">
+                <div class="dashboard-top">
+                    <span>ChatPlug Dashboard</span>
+                    <span>● Live</span>
+                </div>
+
+                <div class="dashboard-stats">
+                    <div>
+                        <small>Total Chats</small>
+                        <strong>12,845</strong>
+                    </div>
+
+                    <div>
+                        <small>Leads</small>
+                        <strong>3,284</strong>
+                    </div>
+
+                    <div>
+                        <small>Resolution</small>
+                        <strong>94%</strong>
+                    </div>
+                </div>
+
+                <div class="chart">
+                    <div class="bar bar1"></div>
+                    <div class="bar bar2"></div>
+                    <div class="bar bar3"></div>
+                    <div class="bar bar4"></div>
+                    <div class="bar bar5"></div>
+                    <div class="bar bar6"></div>
+                    <div class="bar bar7"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="benefit-content">
+
+            <span class="small-title">WHY CHATPLUG AI?</span>
+
+            <h2>
+                Convert More Visitors Into Happy Customers
+            </h2>
+
+            <p>
+                Stop losing potential customers because nobody is
+                available to answer their questions. ChatPlug AI
+                instantly engages visitors and helps your business
+                grow.
+            </p>
+
+            <div class="check">
+                ✓ Reduce customer support workload
+            </div>
+
+            <div class="check">
+                ✓ Capture leads automatically
+            </div>
+
+            <div class="check">
+                ✓ Improve customer experience
+            </div>
+
+            <div class="check">
+                ✓ Increase website conversions
+            </div>
+
+            <button class="primary-btn" onclick="startFree()">
+                Try ChatPlug AI
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+
+        <div class="section-title">
+            <span>SIMPLE PRICING</span>
+            <h2>Choose the Perfect Plan</h2>
+            <p>
+                Start free and upgrade when your business grows.
+            </p>
+        </div>
+
+        <div class="pricing-grid">
+
+            <div class="price-card">
+
+                <h3>Free</h3>
+
+                <div class="price">
+                    $0
+                    <small>/month</small>
+                </div>
+
+                <p>For small websites</p>
+
+                <div class="price-feature">✓ 100 chats/month</div>
+                <div class="price-feature">✓ Basic AI</div>
+                <div class="price-feature">✓ Basic customization</div>
+                <div class="price-feature">✓ Email support</div>
+
+                <button onclick="choosePlan('Free')">
+                    Start Free
+                </button>
+
+            </div>
+
+
+            <div class="price-card popular">
+
+                <div class="popular-label">
+                    MOST POPULAR
+                </div>
+
+                <h3>Pro</h3>
+
+                <div class="price">
+                    $19
+                    <small>/month</small>
+                </div>
+
+                <p>For growing businesses</p>
+
+                <div class="price-feature">✓ Unlimited chats</div>
+                <div class="price-feature">✓ Advanced AI</div>
+                <div class="price-feature">✓ Lead generation</div>
+                <div class="price-feature">✓ Analytics</div>
+
+                <button onclick="choosePlan('Pro')">
+                    Get Pro
+                </button>
+
+            </div>
+
+
+            <div class="price-card">
+
+                <h3>Business</h3>
+
+                <div class="price">
+                    $49
+                    <small>/month</small>
+                </div>
+
+                <p>For larger companies</p>
+
+                <div class="price-feature">✓ Unlimited chats</div>
+                <div class="price-feature">✓ Premium AI</div>
+                <div class="price-feature">✓ Advanced analytics</div>
+                <div class="price-feature">✓ Priority support</div>
+
+                <button onclick="choosePlan('Business')">
+                    Get Business
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Reviews -->
+    <section class="reviews" id="reviews">
+
+        <div class="section-title">
+            <span>CUSTOMER REVIEWS</span>
+            <h2>Businesses Love ChatPlug AI</h2>
+        </div>
+
+        <div class="review-grid">
+
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    "ChatPlug AI has completely changed how we
+                    handle customer support. Our team saves hours
+                    every week."
+                </p>
+
+                <h4>Sarah Ahmed</h4>
+                <small>Online Store Owner</small>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    "The installation was extremely easy and our
+                    customers started using it immediately."
+                </p>
+
+                <h4>Ali Khan</h4>
+                <small>Startup Founder</small>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    "The chatbot gives us leads even when our staff
+                    is offline. Highly recommended."
+                </p>
+
+                <h4>David Wilson</h4>
+                <small>Marketing Manager</small>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+
+        <div class="section-title">
+            <span>FAQ</span>
+            <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-container">
+
+            <div class="faq-item">
+                <button onclick="toggleFAQ(this)">
+                    How easy is it to install?
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+                    ChatPlug AI can be installed on your website
+                    with a simple setup process. No advanced coding
+                    skills are required.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button onclick="toggleFAQ(this)">
+                    Can I customize the chatbot?
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+                    Yes. You can customize colors, branding,
+                    welcome messages and chatbot behavior.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button onclick="toggleFAQ(this)">
+                    Does it work 24/7?
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+                    Yes. The AI chatbot can respond to customers
+                    at any time of the day.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+
+        <div class="section-title">
+            <span>GET IN TOUCH</span>
+            <h2>Contact Us</h2>
+            <p>
+                Have a question or need help? Send us a message
+                or reach out directly.
+            </p>
+        </div>
+
+        <div class="contact-wrap">
+
+            <div class="contact-info">
+
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h4>Address</h4>
+                        <p>123 Business Street, Karachi, Pakistan</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>support@chatplugai.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+92 300 1234567</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🕒</div>
+                    <div>
+                        <h4>Working Hours</h4>
+                        <p>Mon - Sat: 9:00 AM - 7:00 PM</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <form class="contact-form" id="contactForm" onsubmit="submitContactForm(event)">
+
+                <label for="cName">Full Name</label>
+                <input type="text" id="cName" placeholder="Your name" required>
+
+                <label for="cEmail">Email Address</label>
+                <input type="email" id="cEmail" placeholder="you@example.com" required>
+
+                <label for="cMessage">Message</label>
+                <textarea id="cMessage" rows="5" placeholder="Write your message here..." required></textarea>
+
+                <button type="submit" class="primary-btn">Send Message</button>
+
+            </form>
+
+        </div>
+    </section>
+
+
+    <!-- Call To Action -->
+    <section class="cta">
+
+        <h2>
+            Ready to Make Your Website Smarter?
+        </h2>
+
+        <p>
+            Start using ChatPlug AI today and turn more visitors
+            into customers.
+        </p>
+
+        <button onclick="startFree()">
+            Get Started Free
+        </button>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-logo">
+            ChatPlug<span>AI</span>
+        </div>
+
+        <p>
+            Smart conversations. Better customer experiences.
+        </p>
+
+        <p class="copyright">
+            © 2026 ChatPlug AI. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
