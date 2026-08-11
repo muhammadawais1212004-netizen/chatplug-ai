@@ -89,10 +89,11 @@ function submitContactForm(event) {
 
     const name = document.getElementById("cName").value.trim();
     const email = document.getElementById("cEmail").value.trim();
+    const phone = document.getElementById("cPhone").value.trim();
     const message = document.getElementById("cMessage").value.trim();
     const submitBtn = event.target.querySelector("button[type='submit']");
 
-    if (name === "" || email === "" || message === "") {
+  if (name === "" || email === "" || phone === "" || message === "") {
         alert("Please fill out all fields before sending.");
         return;
     }
@@ -104,7 +105,7 @@ function submitContactForm(event) {
     fetch("send-mail.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message })
+      body: JSON.stringify({ name, email, phone, message })
     })
         .then(function (res) { return res.json(); })
         .then(function (data) {
