@@ -3,6 +3,7 @@ header('Content-Type: application/json');
 $input = json_decode(file_get_contents('php://input'), true);
 $name    = trim($input['name'] ?? '');
 $email   = trim($input['email'] ?? '');
+$phone   = trim($input['phone'] ?? '');
 $message = trim($input['message'] ?? '');
 
 $apiKey = getenv('BREVO_API_KEY');
@@ -36,7 +37,7 @@ try {
         'muhammadawais1212004@gmail.com',
         'ChatPlug AI',
         "New message from $name",
-        "Name: $name\nEmail: $email\nMessage: $message"
+      "Name: $name\nEmail: $email\nPhone: $phone\nMessage: $message"
     );
 
     $userSent = sendBrevoEmail(
