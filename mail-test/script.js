@@ -125,3 +125,31 @@ function submitContactForm(event) {
             submitBtn.disabled = false;
         });
 }
+// ============ CHAT CAROUSEL AUTO-SLIDE ============
+let currentSlide = 0;
+const totalSlides = 3;
+
+function goToSlide(index) {
+    const slides = document.querySelectorAll(".carousel-slide");
+    const dots = document.querySelectorAll(".dot");
+
+    slides.forEach(function (slide) {
+        slide.classList.remove("active");
+    });
+    dots.forEach(function (dot) {
+        dot.classList.remove("active");
+    });
+
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+
+    currentSlide = index;
+}
+
+function nextSlide() {
+    const next = (currentSlide + 1) % totalSlides;
+    goToSlide(next);
+}
+
+// Auto-slide every 2 seconds
+setInterval(nextSlide, 2000);
