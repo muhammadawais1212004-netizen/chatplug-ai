@@ -127,20 +127,32 @@ function submitContactForm(event) {
 }
 // ============ CHAT CAROUSEL AUTO-SLIDE ============
 let currentSlide = 0;
-const totalSlides = 3;
+const totalSlides = 4;
 
 function goToSlide(index) {
     const slides = document.querySelectorAll(".carousel-slide");
     const dots = document.querySelectorAll(".dot");
 
-    slides.forEach(function (slide) {
-        slide.classList.remove("active");
+    slides.forEach(function (slide, i) {
+        if (i === index) {
+            slide.classList.remove("prev");
+            slide.classList.add("active");
+        } else if (i === currentSlide) {
+            slide.classList.remove("active");
+            slide.classList.add("prev");
+
+            setTimeout(function () {
+                slide.style.transition = "none";
+                slide.classList.remove("prev");
+                void slide.offsetWidth;
+                slide.style.transition = "";
+            }, 700);
+        }
     });
+
     dots.forEach(function (dot) {
         dot.classList.remove("active");
     });
-
-    slides[index].classList.add("active");
     dots[index].classList.add("active");
 
     currentSlide = index;
@@ -151,5 +163,5 @@ function nextSlide() {
     goToSlide(next);
 }
 
-// Auto-slide every 2 seconds
-setInterval(nextSlide, 2000);
+// Auto-slide every 3 seconds
+setInterval(nextSlide, 3000);
