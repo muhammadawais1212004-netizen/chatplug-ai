@@ -83,46 +83,79 @@
             </div>
 
         </div>
+<!-- Chatbot Preview Carousel -->
+<div class="chat-preview" id="chatCarousel">
 
-        <!-- Chatbot Preview -->
-        <div class="chat-preview">
-
-            <div class="chat-header">
-                <div class="bot-icon">🤖</div>
-
-                <div>
-                    <h3>ChatPlug AI</h3>
-                    <span>● Online</span>
-                </div>
-            </div>
-
-            <div class="chat-body">
-
-                <div class="message bot">
-                    Hello! 👋
-                    How can I help you today?
-                </div>
-
-                <div class="message user">
-                    Tell me about your product.
-                </div>
-
-                <div class="message bot">
-                    Of course! ChatPlug AI helps businesses
-                    automate customer support and generate
-                    more leads.
-                </div>
-
-                <div class="chat-input">
-                    <input type="text"
-                           id="chatInput"
-                           placeholder="Type a message...">
-
-                    <button onclick="sendMessage()">➤</button>
-                </div>
-
+    <div class="carousel-slide theme-teal active">
+        <div class="chat-header">
+            <div class="bot-icon">🤖</div>
+            <div>
+                <h3>Chat Assistant</h3>
+                <span>● Online</span>
             </div>
         </div>
+        <div class="chat-body">
+            <div class="message bot">Hi! 👋 How can I help you today?</div>
+            <div class="message bot">Here are some things I can help with:</div>
+            <div class="quick-reply">What are your opening hours?</div>
+            <div class="quick-reply">How can I contact you?</div>
+            <div class="quick-reply">Where are you located?</div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type your question..." disabled>
+                <button>➤</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-slide theme-pink">
+        <div class="chat-header">
+            <div class="bot-icon">🤖</div>
+            <div>
+                <h3>Chat Assistant</h3>
+                <span>● Online</span>
+            </div>
+        </div>
+        <div class="chat-body">
+            <div class="message bot">Hi! 👋 How can I help you today?</div>
+            <div class="message bot">Here are some things I can help with:</div>
+            <div class="quick-reply">What are your opening hours?</div>
+            <div class="quick-reply">How can I contact you?</div>
+            <div class="quick-reply">Where are you located?</div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type your question..." disabled>
+                <button>➤</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-slide theme-indigo">
+        <div class="chat-header">
+            <div class="bot-icon">🤖</div>
+            <div>
+                <h3>Chat Assistant</h3>
+                <span>● Online</span>
+            </div>
+        </div>
+        <div class="chat-body">
+            <div class="message bot">Hi! 👋 How can I help you today?</div>
+            <div class="message bot">Here are some things I can help with:</div>
+            <div class="quick-reply">What are your opening hours?</div>
+            <div class="quick-reply">How can I contact you?</div>
+            <div class="quick-reply">Where are you located?</div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type your question..." disabled>
+                <button>➤</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-dots">
+        <span class="dot active" onclick="goToSlide(0)"></span>
+        <span class="dot" onclick="goToSlide(1)"></span>
+        <span class="dot" onclick="goToSlide(2)"></span>
+    </div>
+
+</div>
 
     </section>
 
