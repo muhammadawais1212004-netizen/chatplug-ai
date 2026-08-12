@@ -875,6 +875,21 @@ footer p {
 .theme-orange .chat-header {
     background: linear-gradient(135deg, #ea580c, #f97316);
 }
+.theme-green .chat-header {
+    background: linear-gradient(135deg, #059669, #10b981);
+}
+
+.theme-magenta .chat-header {
+    background: linear-gradient(135deg, #a21caf, #f97316);
+}
+
+.theme-slate .chat-header {
+    background: linear-gradient(135deg, #1e293b, #475569);
+}
+
+.theme-red .chat-header {
+    background: linear-gradient(135deg, #b91c1c, #ef4444);
+}
 
 .carousel-slide .bot-icon {
     width: 45px;
@@ -942,6 +957,25 @@ footer p {
     color: #ea580c;
     border: 1.5px solid #ea580c;
 }
+.theme-green .quick-reply {
+    color: #059669;
+    border: 1.5px solid #059669;
+}
+
+.theme-magenta .quick-reply {
+    color: #a21caf;
+    border: 1.5px solid #a21caf;
+}
+
+.theme-slate .quick-reply {
+    color: #334155;
+    border: 1.5px solid #334155;
+}
+
+.theme-red .quick-reply {
+    color: #b91c1c;
+    border: 1.5px solid #b91c1c;
+}
 
 .carousel-slide .chat-input {
     display: flex;
@@ -979,6 +1013,10 @@ footer p {
 .theme-pink .chat-input button { background: #c026d3; }
 .theme-indigo .chat-input button { background: #4338ca; }
 .theme-orange .chat-input button { background: #ea580c; }
+.theme-green .chat-input button { background: #059669; }
+.theme-magenta .chat-input button { background: #a21caf; }
+.theme-slate .chat-input button { background: #334155; }
+.theme-red .chat-input button { background: #b91c1c; }
 
 /* Dots */
 .carousel-dots {
