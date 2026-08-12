@@ -127,7 +127,7 @@ function submitContactForm(event) {
 }
 // ============ CHAT CAROUSEL AUTO-SLIDE ============
 let currentSlide = 0;
-const totalSlides = 4;
+const totalSlides = 8;
 
 function goToSlide(index) {
     const slides = document.querySelectorAll(".carousel-slide");
