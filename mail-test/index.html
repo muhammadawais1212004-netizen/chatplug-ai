@@ -5,9 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatPlug AI - Smart Chatbot Plugin</title>
 
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-logo">ChatPlug<span>AI</span></div>
+        <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+    </div>
+
+    <!-- Cursor Glow (hero only) -->
+    <div class="cursor-glow" id="cursorGlow"></div>
 
     <!-- Navigation -->
     <header class="navbar">
@@ -22,9 +36,13 @@
             <a href="#contact" onclick="closeMenu()">Contact</a>
         </nav>
 
-        <button class="nav-btn" onclick="scrollToSection('pricing')">
-            Get Started
-        </button>
+        <div class="navbar-actions">
+            <button class="dark-toggle" id="darkToggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
+
+            <button class="nav-btn pulse-btn" onclick="scrollToSection('pricing')">
+                Get Started
+            </button>
+        </div>
 
         <!-- Hamburger menu button (mobile) -->
         <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
@@ -34,19 +52,37 @@
         </button>
     </header>
 
+    <!-- Overlay behind mobile menu -->
+    <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
+
 
     <!-- Hero Section -->
     <section class="hero" id="home">
 
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="hero-grid-pattern"></div>
+
         <div class="hero-content">
 
             <div class="badge">
+                <span class="badge-dot"></span>
                 🚀 AI-Powered Chatbot Plugin
             </div>
 
             <h1>
                 Turn Your Website Into a
-                <span>24/7 AI Assistant</span>
+                <span class="highlight">24/7 AI Assistant
+                    <svg class="underline-swirl" viewBox="0 0 300 20" preserveAspectRatio="none">
+                        <path d="M2 14 Q 75 2, 150 12 T 298 10" stroke="url(#swirlGrad)" stroke-width="5" fill="none" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="swirlGrad" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stop-color="#635bff"/>
+                                <stop offset="100%" stop-color="#c026d3"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </span>
             </h1>
 
             <p>
@@ -56,39 +92,52 @@
             </p>
 
             <div class="hero-buttons">
-                <button class="primary-btn" onclick="startFree()">
-                    Start Free
-                </button>
+              <button class="primary-btn" onclick="startFree()">
+              Get In Touch
+              </button>
 
                 <button class="secondary-btn" onclick="showDemo()">
-                    ▶ Watch Demo
+                    <span class="play-circle">▶</span> Watch Demo
                 </button>
+            </div>
+
+            <div class="trusted-row">
+                <div class="avatar-stack">
+                    <span class="avatar" style="background:#635bff;">S</span>
+                    <span class="avatar" style="background:#c026d3;">A</span>
+                    <span class="avatar" style="background:#0f9b8e;">D</span>
+                    <span class="avatar" style="background:#ea580c;">M</span>
+                </div>
+                <span class="trusted-text">Trusted by 10,000+ website owners</span>
             </div>
 
             <div class="stats">
                 <div>
-                    <strong>10K+</strong>
+                    <strong data-count="10" data-suffix="K+">0</strong>
                     <small>Websites</small>
                 </div>
 
                 <div>
-                    <strong>99.9%</strong>
+                    <strong data-count="99.9" data-suffix="%">0</strong>
                     <small>Uptime</small>
                 </div>
 
                 <div>
-                    <strong>24/7</strong>
+                    <strong data-count="24" data-suffix="/7" data-no-decimal>0</strong>
                     <small>Support</small>
                 </div>
             </div>
 
         </div>
 
+<!-- Chatbot Preview Carousel (UNCHANGED — do not touch) -->
+ <div class="chat-preview-wrapper">
+
+<div class="live-now-badge"><span class="live-dot"></span>LIVE</div>
+
+<div class="theme-badge"><span class="theme-badge-icon">🎨</span>Customizable Themes</div>
+
 <!-- Chatbot Preview Carousel -->
-<div class="chat-preview-wrapper">
-
-<div class="theme-badge">Themes · One Smart Assistant</div>
-
 <div class="chat-preview" id="chatCarousel">
 
     <div class="carousel-slide theme-teal active">
@@ -155,27 +204,26 @@
     </div>
 
     <div class="carousel-slide theme-orange">
-        <div class="chat-header">
-            <div class="bot-icon">🤖</div>
-            <div>
-                <h3>Chat Assistant</h3>
-                <span>● Online</span>
-            </div>
-        </div>
-        <div class="chat-body">
-            <div class="message bot">Hi! 👋 How can I help you today?</div>
-            <div class="message bot">Here are some things I can help with:</div>
-            <div class="quick-reply">What are your opening hours?</div>
-            <div class="quick-reply">How can I contact you?</div>
-            <div class="quick-reply">Where are you located?</div>
-            <div class="chat-input">
-                <input type="text" placeholder="Type your question..." disabled>
-                <button>➤</button>
-            </div>
+    <div class="chat-header">
+        <div class="bot-icon">🤖</div>
+        <div>
+            <h3>Chat Assistant</h3>
+            <span>● Online</span>
         </div>
     </div>
-
-    <div class="carousel-slide theme-green">
+    <div class="chat-body">
+        <div class="message bot">Hi! 👋 How can I help you today?</div>
+        <div class="message bot">Here are some things I can help with:</div>
+        <div class="quick-reply">What are your opening hours?</div>
+        <div class="quick-reply">How can I contact you?</div>
+        <div class="quick-reply">Where are you located?</div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type your question..." disabled>
+            <button>➤</button>
+        </div>
+    </div>
+</div>
+<div class="carousel-slide theme-green">
         <div class="chat-header">
             <div class="bot-icon">🤖</div>
             <div>
@@ -259,89 +307,165 @@
         </div>
     </div>
 
-    <div class="carousel-dots">
-        <span class="dot active" onclick="goToSlide(0)"></span>
-        <span class="dot" onclick="goToSlide(1)"></span>
-        <span class="dot" onclick="goToSlide(2)"></span>
-        <span class="dot" onclick="goToSlide(3)"></span>
-        <span class="dot" onclick="goToSlide(4)"></span>
-        <span class="dot" onclick="goToSlide(5)"></span>
-        <span class="dot" onclick="goToSlide(6)"></span>
-        <span class="dot" onclick="goToSlide(7)"></span>
-    </div>
+  <div class="carousel-dots">
+    <span class="dot active" onclick="goToSlide(0)"></span>
+    <span class="dot" onclick="goToSlide(1)"></span>
+    <span class="dot" onclick="goToSlide(2)"></span>
+    <span class="dot" onclick="goToSlide(3)"></span>
+    <span class="dot" onclick="goToSlide(4)"></span>
+    <span class="dot" onclick="goToSlide(5)"></span>
+    <span class="dot" onclick="goToSlide(6)"></span>
+    <span class="dot" onclick="goToSlide(7)"></span>
+</div>
 
 </div>
-    
+
 </div>
-    </section>
+
+</section>
 
 
-    <!-- Features -->
-    <section class="features" id="features">
+    <!-- How It Answers -->
+    <section class="priority-chain reveal" id="features">
 
         <div class="section-title">
-            <span>POWERFUL FEATURES</span>
-            <h2>Everything You Need to Automate Conversations</h2>
+            <span>HOW IT ANSWERS</span>
+            <h2>Smart Priority Chain</h2>
             <p>
-                Give your customers instant answers while saving
-                time and growing your business.
+                Every question is checked step by step until the
+                best answer is found.
             </p>
         </div>
 
-        <div class="feature-grid">
+        <div class="chain-grid">
 
-            <div class="feature-card">
-                <div class="feature-icon">🤖</div>
-                <h3>AI Powered</h3>
-                <p>
-                    Smart AI understands customer questions and
-                    provides useful responses automatically.
-                </p>
+            <div class="chain-card" onclick="toggleChainDetail(this)">
+                <div class="chain-number">1</div>
+                <h3>Custom Q&A</h3>
+                <p>Matches your admin-defined questions by keywords.</p>
+                <div class="chain-detail">Tap again to collapse. You define exact question/answer pairs in the admin panel — these are always checked first for instant, precise replies.</div>
+                <span class="chain-arrow">→</span>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>Easy Integration</h3>
-                <p>
-                    Add the chatbot to your website quickly
-                    without complicated technical work.
-                </p>
+            <div class="chain-card" onclick="toggleChainDetail(this)">
+                <div class="chain-number">2</div>
+                <h3>WooCommerce</h3>
+                <p>Price, stock, search, categories, featured & sale items.</p>
+                <div class="chain-detail">Reads your live product catalog directly — prices and stock are always accurate, never hardcoded.</div>
+                <span class="chain-arrow">→</span>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-icon">💬</div>
-                <h3>24/7 Support</h3>
-                <p>
-                    Your customers can get assistance anytime,
-                    even when your team is offline.
-                </p>
+            <div class="chain-card" onclick="toggleChainDetail(this)">
+                <div class="chain-number">3</div>
+                <h3>Store Info</h3>
+                <p>Contact, address & info from your pages.</p>
+                <div class="chain-detail">Pulls contact details, hours, and policies straight from your existing site pages.</div>
+                <span class="chain-arrow">→</span>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Analytics</h3>
-                <p>
-                    Track conversations, leads and customer
-                    engagement through a simple dashboard.
-                </p>
+            <div class="chain-card" onclick="toggleChainDetail(this)">
+                <div class="chain-number">4</div>
+                <h3>AI Answer</h3>
+                <p>Open-ended questions, grounded in store data.</p>
+                <div class="chain-detail">For anything not covered above, AI generates a helpful answer — grounded only in your actual store data.</div>
+                <span class="chain-arrow">→</span>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-icon">🎨</div>
-                <h3>Custom Design</h3>
-                <p>
-                    Match the chatbot with your website's colors,
-                    branding and style.
-                </p>
+            <div class="chain-card" onclick="toggleChainDetail(this)">
+                <div class="chain-number">5</div>
+                <h3>Fallback</h3>
+                <p>Polite decline for off-topic questions.</p>
+                <div class="chain-detail">If nothing matches, the assistant politely explains it can't help with that — no made-up answers.</div>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3>Secure</h3>
-                <p>
-                    Keep customer conversations protected with
-                    secure and reliable technology.
-                </p>
+        </div>
+    </section>
+
+
+    <!-- Full Feature Breakdown -->
+    <section class="detailed-features reveal">
+
+        <div class="section-title">
+            <span>UNDER THE HOOD</span>
+            <h2>Every Feature, Fully Loaded</h2>
+            <p>
+                Everything you get out of the box, from the chat
+                widget to the admin panel and AI engine.
+            </p>
+        </div>
+
+        <div class="detail-grid">
+
+            <div class="detail-card">
+                <div class="detail-icon">💬</div>
+                <h3>Chat Widget</h3>
+                <ul>
+                    <li>Floating launcher, bottom-left or right</li>
+                    <li>Animated open/close with icon spin</li>
+                    <li>Greeting + clickable suggested questions</li>
+                    <li>Live "thinking" indicator while answering</li>
+                    <li>Input locks during processing (no double-sends)</li>
+                    <li>Responsive, theme-proof, reduced-motion aware</li>
+                </ul>
+            </div>
+
+            <div class="detail-card">
+                <div class="detail-icon">⚙️</div>
+                <h3>No-Code Admin Page</h3>
+                <ul>
+                    <li>Questions & Answers — add / edit / remove rows</li>
+                    <li>Primary & accent color pickers</li>
+                    <li>12 preset themes (one-click swatches)</li>
+                    <li>Position, header title, greeting & texts</li>
+                    <li>WooCommerce answers on/off toggle</li>
+                    <li>AI settings + usage counter & error log</li>
+                </ul>
+            </div>
+
+            <div class="detail-card">
+                <div class="detail-icon">🛒</div>
+                <h3>WooCommerce Answers</h3>
+                <ul>
+                    <li>Reads your live catalog — always current</li>
+                    <li>Price & stock / availability lookups</li>
+                    <li>Product search, categories, featured & on-sale</li>
+                    <li>"What do you sell?" catalog overview</li>
+                    <li>Gracefully hidden if WooCommerce is inactive</li>
+                </ul>
+            </div>
+
+            <div class="detail-card">
+                <div class="detail-icon">🧠</div>
+                <h3>AI Answers</h3>
+                <ul>
+                    <li>Free Gemma models via your own key</li>
+                    <li>Grounded in your store — never invents</li>
+                    <li>Polite "we don't sell X" replies</li>
+                    <li>Auto model fallback + retry on rate limits</li>
+                    <li>Daily / all-time usage counter</li>
+                </ul>
+            </div>
+
+            <div class="detail-card">
+                <div class="detail-icon">🎨</div>
+                <h3>Branding & Design</h3>
+                <ul>
+                    <li>Custom launcher logo & send icon</li>
+                    <li>Themeable built-in icon that recolors with your palette</li>
+                    <li>Gradient styling from your chosen colors</li>
+                    <li>Clean, modern, mobile-friendly UI</li>
+                </ul>
+            </div>
+
+            <div class="detail-card">
+                <div class="detail-icon">🛠️</div>
+                <h3>Technical & Quality</h3>
+                <ul>
+                    <li>Proper asset enqueue + cache-busting</li>
+                    <li>Nonces, capability checks, sanitized & escaped I/O</li>
+                    <li>Settings stored in DB; clean uninstall</li>
+                    <li>Translation-ready; works with or without WooCommerce</li>
+                </ul>
             </div>
 
         </div>
@@ -349,7 +473,7 @@
 
 
     <!-- Benefits -->
-    <section class="benefits">
+    <section class="benefits reveal">
 
         <div class="benefit-image">
             <div class="dashboard">
@@ -428,7 +552,7 @@
 
 
     <!-- Pricing -->
-    <section class="pricing" id="pricing">
+    <section class="pricing reveal" id="pricing">
 
         <div class="section-title">
             <span>SIMPLE PRICING</span>
@@ -436,6 +560,15 @@
             <p>
                 Start free and upgrade when your business grows.
             </p>
+        </div>
+
+        <div class="billing-toggle">
+            <span class="billing-label active" id="monthlyLabel">Monthly</span>
+            <button class="toggle-switch" id="billingSwitch" onclick="toggleBilling()" aria-label="Toggle yearly billing">
+                <span class="toggle-knob"></span>
+            </button>
+            <span class="billing-label" id="yearlyLabel">Yearly</span>
+            <span class="save-badge">Save 20%</span>
         </div>
 
         <div class="pricing-grid">
@@ -460,6 +593,8 @@
                     Start Free
                 </button>
 
+                <div class="no-card-text">No credit card required</div>
+
             </div>
 
 
@@ -472,7 +607,7 @@
                 <h3>Pro</h3>
 
                 <div class="price">
-                    $19
+                    $<span class="price-amount" data-monthly="19" data-yearly="15">19</span>
                     <small>/month</small>
                 </div>
 
@@ -495,7 +630,7 @@
                 <h3>Business</h3>
 
                 <div class="price">
-                    $49
+                    $<span class="price-amount" data-monthly="49" data-yearly="39">49</span>
                     <small>/month</small>
                 </div>
 
@@ -517,58 +652,104 @@
 
 
     <!-- Reviews -->
-    <section class="reviews" id="reviews">
+    <section class="reviews reveal" id="reviews">
 
         <div class="section-title">
             <span>CUSTOMER REVIEWS</span>
             <h2>Businesses Love ChatPlug AI</h2>
         </div>
 
-        <div class="review-grid">
+        <div class="review-slider">
+            <div class="review-track" id="reviewTrack">
 
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
+                <div class="review-card">
+                    <div class="review-top">
+                        <span class="company-logo" style="background:#635bff;">SA</span>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p>
+                        "ChatPlug AI has completely changed how we
+                        handle customer support. Our team saves hours
+                        every week."
+                    </p>
+                    <h4>Sarah Ahmed</h4>
+                    <small>Online Store Owner</small>
+                </div>
 
-                <p>
-                    "ChatPlug AI has completely changed how we
-                    handle customer support. Our team saves hours
-                    every week."
-                </p>
+                <div class="review-card">
+                    <div class="review-top">
+                        <span class="company-logo" style="background:#0f9b8e;">AK</span>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p>
+                        "The installation was extremely easy and our
+                        customers started using it immediately."
+                    </p>
+                    <h4>Ali Khan</h4>
+                    <small>Startup Founder</small>
+                </div>
 
-                <h4>Sarah Ahmed</h4>
-                <small>Online Store Owner</small>
+                <div class="review-card">
+                    <div class="review-top">
+                        <span class="company-logo" style="background:#ea580c;">DW</span>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p>
+                        "The chatbot gives us leads even when our staff
+                        is offline. Highly recommended."
+                    </p>
+                    <h4>David Wilson</h4>
+                    <small>Marketing Manager</small>
+                </div>
+
+                <!-- Duplicate set for seamless infinite loop -->
+                <div class="review-card" aria-hidden="true">
+                    <div class="review-top">
+                        <span class="company-logo" style="background:#635bff;">SA</span>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p>
+                        "ChatPlug AI has completely changed how we
+                        handle customer support. Our team saves hours
+                        every week."
+                    </p>
+                    <h4>Sarah Ahmed</h4>
+                    <small>Online Store Owner</small>
+                </div>
+
+                <div class="review-card" aria-hidden="true">
+                    <div class="review-top">
+                        <span class="company-logo" style="background:#0f9b8e;">AK</span>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p>
+                        "The installation was extremely easy and our
+                        customers started using it immediately."
+                    </p>
+                    <h4>Ali Khan</h4>
+                    <small>Startup Founder</small>
+                </div>
+
+                <div class="review-card" aria-hidden="true">
+                    <div class="review-top">
+                        <span class="company-logo" style="background:#ea580c;">DW</span>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p>
+                        "The chatbot gives us leads even when our staff
+                        is offline. Highly recommended."
+                    </p>
+                    <h4>David Wilson</h4>
+                    <small>Marketing Manager</small>
+                </div>
+
             </div>
-
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-
-                <p>
-                    "The installation was extremely easy and our
-                    customers started using it immediately."
-                </p>
-
-                <h4>Ali Khan</h4>
-                <small>Startup Founder</small>
-            </div>
-
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-
-                <p>
-                    "The chatbot gives us leads even when our staff
-                    is offline. Highly recommended."
-                </p>
-
-                <h4>David Wilson</h4>
-                <small>Marketing Manager</small>
-            </div>
-
         </div>
     </section>
 
 
     <!-- FAQ -->
-    <section class="faq" id="faq">
+    <section class="faq reveal" id="faq">
 
         <div class="section-title">
             <span>FAQ</span>
@@ -584,9 +765,11 @@
                 </button>
 
                 <div class="faq-answer">
-                    ChatPlug AI can be installed on your website
-                    with a simple setup process. No advanced coding
-                    skills are required.
+                    <div class="faq-answer-inner">
+                        ChatPlug AI can be installed on your website
+                        with a simple setup process. No advanced coding
+                        skills are required.
+                    </div>
                 </div>
             </div>
 
@@ -597,8 +780,10 @@
                 </button>
 
                 <div class="faq-answer">
-                    Yes. You can customize colors, branding,
-                    welcome messages and chatbot behavior.
+                    <div class="faq-answer-inner">
+                        Yes. You can customize colors, branding,
+                        welcome messages and chatbot behavior.
+                    </div>
                 </div>
             </div>
 
@@ -609,8 +794,10 @@
                 </button>
 
                 <div class="faq-answer">
-                    Yes. The AI chatbot can respond to customers
-                    at any time of the day.
+                    <div class="faq-answer-inner">
+                        Yes. The AI chatbot can respond to customers
+                        at any time of the day.
+                    </div>
                 </div>
             </div>
 
@@ -619,7 +806,7 @@
 
 
     <!-- Contact -->
-    <section class="contact" id="contact">
+    <section class="contact reveal" id="contact">
 
         <div class="section-title">
             <span>GET IN TOUCH</span>
@@ -666,6 +853,15 @@
                     </div>
                 </div>
 
+                <div class="map-embed">
+                    <iframe
+                        src="https://www.google.com/maps?q=Karachi,Pakistan&output=embed"
+                        width="100%" height="220" style="border:0;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        title="Office location map">
+                    </iframe>
+                </div>
+
             </div>
 
             <form class="contact-form" id="contactForm" onsubmit="submitContactForm(event)">
@@ -691,7 +887,7 @@
 
 
     <!-- Call To Action -->
-    <section class="cta">
+    <section class="cta reveal">
 
         <h2>
             Ready to Make Your Website Smarter?
@@ -725,6 +921,29 @@
         </p>
 
     </footer>
+
+
+    <!-- Back to Top -->
+    <button id="backToTop" class="back-to-top" onclick="scrollToTop()" aria-label="Back to top">
+        ↑
+    </button>
+
+    <!-- Toast (contact form success) -->
+    <div id="toast" class="toast">
+        <span class="toast-icon">✓</span>
+        <span id="toastMessage">Message sent!</span>
+    </div>
+
+    <!-- Video Modal (Watch Demo) -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-backdrop" onclick="closeDemo()"></div>
+        <div class="video-modal-box">
+            <button class="video-modal-close" onclick="closeDemo()" aria-label="Close video">✕</button>
+            <div class="video-modal-inner">
+                <p class="video-modal-placeholder">🎬 Demo video coming soon!</p>
+            </div>
+        </div>
+    </div>
 
 
     <script src="script.js"></script>
