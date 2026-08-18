@@ -426,3 +426,36 @@ function submitContactForm(event) {
             submitBtn.disabled = false;
         });
 }
+// ============ BENEFITS — ANIMATED DASHBOARD (live counters + bars) ============
+(function () {
+    let chats = 12845;
+    let leads = 3284;
+    const barIds = ["dashBar1", "dashBar2", "dashBar3", "dashBar4", "dashBar5", "dashBar6", "dashBar7"];
+
+    function flash(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.classList.add("flash-active");
+        setTimeout(function () {
+            el.classList.remove("flash-active");
+        }, 400);
+    }
+
+    const dashChatsEl = document.getElementById("dashChats");
+    if (!dashChatsEl) return; // Benefits dashboard not on this page, skip
+
+    setInterval(function () {
+        chats += Math.floor(Math.random() * 4) + 1;
+        leads += Math.random() < 0.4 ? 1 : 0;
+
+        document.getElementById("dashChats").textContent = chats.toLocaleString();
+        document.getElementById("dashLeads").textContent = leads.toLocaleString();
+        flash("dashChats");
+
+        const randomBar = barIds[Math.floor(Math.random() * barIds.length)];
+        const barEl = document.getElementById(randomBar);
+        if (barEl) {
+            barEl.style.height = (35 + Math.random() * 65).toFixed(0) + "%";
+        }
+    }, 2200);
+})();
